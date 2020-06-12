@@ -1,0 +1,143 @@
+{
+  "{vendor}-{uuApp}-{uuSubApp}": {
+    "useCaseMap": {
+
+      "defaultUve": {
+        "realization": "api/controllers/TravelInstanceController.getIndex",
+        "httpMethod": "GET",
+        "type": "UVE"
+      },
+      "workaround": {
+        "realization": "index.html",
+        "httpMethod": "GET",
+        "type": "UVE"
+      },
+      "travelInstance/init": {
+        "realization": "api/controllers/TravelInstanceController.init",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "travelInstance/plugInBt": {
+        "realization": "api/controllers/TravelInstanceController.plugInBt",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "travelInstance/load": {
+        "realization": "api/controllers/TravelInstanceController.load",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "travelInstance/update": {
+        "realization": "api/controllers/TravelInstanceController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "travelInstance/setLogo": {
+        "realization": "api/controllers/TravelInstanceController.setLogo",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "travelInstance/setIcons": {
+        "realization": "api/controllers/TravelInstanceController.setIcons",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "travelInstance/getUveMetaData": {
+        "realization": "api/controllers/TravelInstanceController.getUveMetaData",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "trip/create": {
+        "realization": "api/controllers/TripController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "trip/get": {
+        "realization": "api/controllers/TripController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "trip/update": {
+        "realization": "api/controllers/TripController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "trip/updateVisibility": {
+        "realization": "api/controllers/TripController.updateVisibility",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "trip/delete": {
+        "realization": "api/controllers/TripController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "trip/list": {
+        "realization": "api/controllers/TripController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "participant/create": {
+        "realization": "api/controllers/ParticipantController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "participant/get": {
+        "realization": "api/controllers/ParticipantController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "participant/update": {
+        "realization": "api/controllers/ParticipantController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "participant/delete": {
+        "realization": "api/controllers/ParticipantController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "participant/list": {
+        "realization": "api/controllers/ParticipantController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "location/create": {
+        "realization": "api/controllers/LocationController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/get": {
+        "realization": "api/controllers/LocationController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "location/update": {
+        "realization": "api/controllers/LocationController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/delete": {
+        "realization": "api/controllers/LocationController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "location/list": {
+        "realization": "api/controllers/LocationController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+
+      "getProductInfo": {
+        "realization": "api/controllers/TravelInstanceController.getProductInfo",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "getProductLogo": {
+        "realization": "api/controllers/TravelInstanceController.getProductLogo",
+        "httpMethod": "GET",
+        "type": "CMD"
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "{asid}": {
+    "profileList": ["AsidOwner"],
+    "permissionMap": {
+      "{asidOwner}": ["AsidOwner"]
+    },
+    "useCaseMap": {
+      "sys/getHealth": ["AsidOwner"],
+      "sys/getStatistics": ["AsidOwner"],
+      "sys/getConfiguration": ["AsidOwner"],
+      "sys/getEnvironment": ["AsidOwner"],
+      "sys/resetStatistics": ["AsidOwner"]
+    }
+  },
+  "*": {
+    "profileList": ["AwidOwner", "Authorities", "Executives"],
+    "useCaseMap": {
+      "defaultUve": ["Public"],
+      "defaultUve/{route}": ["Public"],
+
+      "travelInstance/init": ["AwidOwner"],
+      "travelInstance/plugInBt": ["AwidOwner", "Authorities"],
+      "travelInstance/load": ["Authorities", "Executives"],
+      "travelInstance/update": ["Authorities"],
+      "travelInstance/setLogo": ["Authorities"],
+      "travelInstance/setIcons": ["Authorities"],
+      "travelInstance/getUveMetaData": ["Public"],
+      "trip/create": ["Authorities", "Executives"],
+      "trip/get": ["Authorities", "Executives"],
+      "trip/update": ["Authorities", "Executives"],
+      "trip/updateVisibility": ["Authorities"],
+      "trip/delete": ["Authorities", "Executives"],
+      "trip/list": ["Authorities", "Executives"],
+      "participant/create": ["Authorities", "Executives"],
+      "participant/get": ["Authorities", "Executives"],
+      "participant/update": ["Authorities", "Executives"],
+      "participant/delete": ["Authorities", "Executives"],
+      "participant/list": ["Authorities", "Executives"],
+      "location/create": ["Authorities", "Executives"],
+      "location/get": ["Authorities", "Executives"],
+      "location/update": ["Authorities", "Executives"],
+      "location/delete": ["Authorities", "Executives"],
+      "location/list": ["Authorities", "Executives"],
+
+      "getProductInfo": ["Public"],
+      "getProductLogo": ["Public"],
+
+      "sys/getAppWorkspace": ["Authorities", "AwidOwner"],
+      "sys/getProfile": ["Authorities", "AwidOwner"],
+      "sys/setProfile": ["Authorities", "AwidOwner"],
+      "sys/createPermission": ["Authorities", "AwidOwner"],
+      "sys/deletePermission": ["Authorities", "AwidOwner"],
+      "sys/listPermissions": ["Authorities", "AwidOwner"],
+      "sys/getLicenseOwner": ["Authorities", "AwidOwner", "Executives"],
+      "sys/getAppWorkspaceConfig": ["Authorities", "AwidOwner", "Executives"],
+      "sys/setAppWorkspaceConfig": ["Authorities", "AwidOwner"],
+      "sys/clearAppWorkspaceConfig": ["Authorities", "AwidOwner"],
+
+      "uu-app-binarystore/createBinary": ["Authorities", "Executives"],
+      "uu-app-binarystore/getBinaryData": ["Authorities", "Executives", "Readers"],
+      "uu-app-binarystore/updateBinaryData": ["Authorities", "Executives"],
+      "uu-app-binarystore/deleteBinary": ["Authorities", "Executives"],
+      "uu-app-binarystore/listBinaries": ["Authorities", "Executives"],
+
+      "sys/listAuditLogRecordsByTimeAndSpp": ["Authorities", "AwidOwner"],
+      "sys/listMyAuditLogRecordsByTime": ["Authorities", "AwidOwner", "Executives", "Readers"]
+    }
+  }
+}
