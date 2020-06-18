@@ -35,20 +35,5 @@ export default {
   filterByLocation: {
     cs: "Destinace",
     en: "Location"
-  },
-
-  filterByImage: {
-    cs: "Obrázku",
-    en: "Image"
-  },
-
-  filterByUser: {
-    cs: "Uživatele",
-    en: "User"
-  },
-
-  filterByVisibility: {
-    cs: "Publikace",
-    en: "Published"
   }
 };

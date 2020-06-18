@@ -21,7 +21,7 @@ const tripUpdateDtoInType = shape({
   dateFrom: date(),
   dateTo: date(),
   capacity: integer(),
-  participantList: array(id(), 10),
+  participantList: array(id(), 50),
   locationList: uu5String(4000),
   image: binary()
 });
@@ -38,8 +38,8 @@ const tripDeleteDtoInType = shape({
 const tripListDtoInType = shape({
   sortBy: oneOf(["name"]),
   order: oneOf(["asc", "desc"]),
-  participantList: array(id(), 10),
-  locationList: array(id(), 10),
+  participantList: array(id(), 50),
+  locationList: uu5String(4000),
   pageInfo: shape({
     pageIndex: integer(),
     pageSize: integer()

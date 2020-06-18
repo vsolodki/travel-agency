@@ -29,15 +29,6 @@ export default {
     en: "Failed to delete trip"
   },
 
-  rateSuccessHeader: {
-    cs: "Zajezd byl ohodnocen",
-    en: "Trip was rated"
-  },
-
-  rateFailHeader: {
-    cs: "Zajezd se nepodařilo ohodnotit",
-    en: "Failed to rate trip"
-  },
 
   publishSuccessHeader: {
     cs: "Zajezd byl publikován",
@@ -57,11 +48,6 @@ export default {
   unpublishFailHeader: {
     cs: "Zajezd se nepodařilo skrýt",
     en: "Failed to unpublish trip"
-  },
-
-  rateRightsError: {
-    cs: "Nelze hodnotit vlastní zajezd.",
-    en: "You can not rate your own trip."
   },
 
   rightsError: {

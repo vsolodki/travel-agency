@@ -66,9 +66,8 @@ export const Detail = UU5.Common.VisualComponent.create({
       </UU5.Bricks.Div>
     );
   },
-/*
+
   _buildTripNames(tripList) {
-    // for faster lookup
     let tripIds = new Set(this.props.data.tripList);
     return tripList
       .reduce((acc, trip) => {
@@ -78,7 +77,7 @@ export const Detail = UU5.Common.VisualComponent.create({
         return acc;
       }, [])
       .join(", ");
-  },*/
+  },
 
   /*_getImage() {
     let imageUrl = Uri.getBinaryUrl(this.props.data.image);
@@ -95,15 +94,11 @@ export const Detail = UU5.Common.VisualComponent.create({
           nl2br(this.props.data.text)}
         </div>*/}
         {/*{this.props.data.image && this._getImage()}*/}
-        {/*<UU5.Bricks.Div className={this.getClassName("rating")}>
-          <UU5.Bricks.Rating value={this.props.data.averageRating} />
-           // Rating Count
-          {this.getLsiComponent("votes", null, this.props.data.ratingCount.toString())}
-        </UU5.Bricks.Div>*/}
         {/*<TravelConsumer>
           {({ tripList }) => this._getLine("mdi-account", this._buildTripNames(tripList))}
         </TravelConsumer>*/}
         {/*{this._getLine("mdi-account", this.props.data.uuIdentityName)}*/}
+        {/*{this._getLine("mdi-account-circle", this.props.data.tripList)}*/}
         {this._getLine("mdi-account-circle", this.props.data.surname)}
         {this._getLine("mdi-calendar", this.props.data.birthDate)}
         {this._getLine("mdi-home-city", this.props.data.citizenship)}

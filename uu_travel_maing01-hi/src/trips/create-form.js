@@ -51,7 +51,7 @@ export const Form = UU5.Common.VisualComponent.create({
   _getParticipantsOptions(participants) {
     return participants.map(participant => (
       <UU5.Forms.Select.Option value={participant.id} key={participant.id}>
-        {participant.name}
+        {participant.name} {participant.surname}
       </UU5.Forms.Select.Option>
     ));
   },
@@ -89,7 +89,7 @@ export const Form = UU5.Common.VisualComponent.create({
         {({ participantList, locationList }) => (
           <UU5.Bricks.Div {...this.getMainPropsToPass()}>
 
-            <UU5.Forms.Text inputAttrs={{ maxLength: 255 }} label={this.getLsiComponent("name")} name="name"  />
+            <UU5.Forms.Text inputAttrs={{ maxLength: 255 }} label={this.getLsiComponent("name")} name="name" required  />
             <UU5.Forms.DatePicker
               label={this.getLsiComponent("dateFrom")}
               valueType="iso"
@@ -107,19 +107,10 @@ export const Form = UU5.Common.VisualComponent.create({
               step={1}
               name="capacity"
             />
-            {/*<UU5.Forms.TextArea
-              label={this.getLsiComponent("text")}
-              inputAttrs={{ maxLength: 4000 }}
-              name="text"
-              onValidate={this._validateText}
-              autoResize
-            />*/}
 
-            {/*<UU5.Forms.File label={this.getLsiComponent("image")} name="image" ref_={this._registerFile} />*/}
             <UU5.Forms.Select
               label={this.getLsiComponent("location")}
               name="locationList"
-
               openToContent={true}
             >
               {this._getLocationsOptions(locationList)}

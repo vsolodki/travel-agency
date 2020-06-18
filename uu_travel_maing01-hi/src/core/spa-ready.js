@@ -6,9 +6,9 @@ import "uu_plus4u5g01-app";
 import Config from "./config/config.js";
 import Bottom from "./bottom";
 import Left from "./left";
-import Trips from "../routes/trips";
-import ParticipantManagement from "../routes/participant-management";
-import LocationManagement from "../routes/location-management";
+import Trip from "../routes/trip";
+import Participant from "../routes/participant";
+import Location from "../routes/location";
 import About from "../routes/about";
 
 import "./spa-ready.less";
@@ -67,13 +67,13 @@ export const SpaReady = UU5.Common.VisualComponent.create({
               route=""
               notFoundRoute="trips"
               routes={{
-                trips: { component: <Trips /> },
+                trip: { component: <Trip /> },
                 "": "trips",
-                participantManagement: {
-                  component: <ParticipantManagement />
+                participant: {
+                  component: <Participant />
                 },
-                locationManagement: {
-                  component: <LocationManagement />
+                location: {
+                  component: <Location />
                 },
                 about: { component: <About /> }
               }}

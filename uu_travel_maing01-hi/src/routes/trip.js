@@ -9,11 +9,11 @@ import TripsReady from "../trips/ready.js";
 import {dig} from "../helpers/object-utils.js";
 import {reportSuccess, reportError} from "../helpers/alert-helper";
 
-import "./trips.less";
-import LSI from "./trips-lsi.js";
+import "./trip.less";
+import LSI from "./trip-lsi.js";
 //@@viewOff:imports
 
-export const Trips = UU5.Common.VisualComponent.create({
+export const Trip = UU5.Common.VisualComponent.create({
   //@@viewOn:mixins
   mixins: [UU5.Common.BaseMixin, UU5.Common.RouteMixin, UU5.Common.CcrReaderMixin],
   //@@viewOff:mixins
@@ -171,7 +171,7 @@ export const Trips = UU5.Common.VisualComponent.create({
             if (data) {
               return (
                 <UU5.Common.Identity>
-                  {({identity}) =>
+                  {({ identity }) => (
                     <TripsReady
                       data={this._filterOutVisibility(data, identity)}
                       detailId={dig(this.props, "params", "id")}
@@ -181,9 +181,6 @@ export const Trips = UU5.Common.VisualComponent.create({
                       onUpdate={data => {
                         return this._handleUpdate(data, handleUpdate);
                       }}
-                      onRate={data => {
-                        return this._handleRate(data, handleUpdate);
-                      }}
                       onDelete={data => {
                         return this._handleDelete(data, handleDelete);
                       }}
@@ -191,11 +188,11 @@ export const Trips = UU5.Common.VisualComponent.create({
                         return this._handleUpdateVisibility(data, handleUpdate);
                       }}
                     />
-                  }
+                  )}
                 </UU5.Common.Identity>
               );
             } else {
-              return <UU5.Bricks.Loading/>;
+              return <UU5.Bricks.Loading />;
             }
           }}
         </UU5.Common.ListDataManager>
@@ -205,4 +202,4 @@ export const Trips = UU5.Common.VisualComponent.create({
   //@@viewOff:render
 });
 
-export default Trips;
+export default Trip;

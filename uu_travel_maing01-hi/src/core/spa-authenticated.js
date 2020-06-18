@@ -53,6 +53,7 @@ const SpaAuthenticated = UU5.Common.VisualComponent.create({
       logos: data.logos,
       participantList: data.participantList,
       locationList: data.locationList,
+      tripList: data.locationList,
       userProfiles: data.userProfiles
     };
   },

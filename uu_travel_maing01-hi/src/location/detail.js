@@ -97,11 +97,6 @@ export const Detail = UU5.Common.VisualComponent.create({
           nl2br(this.props.data.text)}
         </div>*/}
         {/*{this.props.data.image && this._getImage()}*/}
-        {/*<UU5.Bricks.Div className={this.getClassName("rating")}>
-          <UU5.Bricks.Rating value={this.props.data.averageRating} />
-           // Rating Count
-          {this.getLsiComponent("votes", null, this.props.data.ratingCount.toString())}
-        </UU5.Bricks.Div>*/}
         {/*<TravelConsumer>
           {({ participantList }) => this._getLine("mdi-account", this._buildParticipantNames(participantList))}
         </TravelConsumer>*/}

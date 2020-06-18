@@ -4,20 +4,20 @@ import "uu5g04-bricks";
 import Config from "./config/config.js";
 
 import { TravelConsumer } from "../../core/travel-provider.js";
-import "./participant.less";
-import LSI from "./participant-lsi.js";
+import "./location.less";
+import LSI from "./location-lsi.js";
 //@@viewOff:imports
 
-export const Participant = UU5.Common.VisualComponent.create({
+export const Location = UU5.Common.VisualComponent.create({
   //@@viewOn:mixins
   mixins: [UU5.Common.BaseMixin],
   //@@viewOff:mixins
 
   //@@viewOn:statics
   statics: {
-    tagName: Config.TAG + "Participant",
+    tagName: Config.TAG + "Location",
     classNames: {
-      main: Config.CSS + "participant"
+      main: Config.CSS + "location"
     },
     lsi: LSI
   },
@@ -45,25 +45,25 @@ export const Participant = UU5.Common.VisualComponent.create({
   //@@viewOff:overriding
 
   //@@viewOn:private
-  _handleSubmit(participantList) {
+  _handleSubmit(locationList) {
     let values = this.props.getValues();
     let usedFilter = this.props.filters.find(filter => filter.key === values.type);
     this.props.addFilter(
       values.type,
       this.getLsiComponent(
-        "participant",
+        "location",
         null,
-        participantList.find(participant => participant.id === values[values.type]).name
+        locationList.find(location => location.id === values[values.type]).city
       ),
       values[values.type],
       usedFilter.filterFn
     );
   },
 
-  _getOptions(participantList) {
-    return participantList.map(participant => (
-      <UU5.Forms.Select.Option value={participant.id} key={participant.id} style="whiteSpace: nowrap">
-        {participant.name} {participant.surname}
+  _getOptions(locationList) {
+    return locationList.map(location => (
+      <UU5.Forms.Select.Option value={location.id} key={location.city} style="whiteSpace: nowrap">
+        {location.city}
       </UU5.Forms.Select.Option>
     ));
   },
@@ -73,13 +73,13 @@ export const Participant = UU5.Common.VisualComponent.create({
   render() {
     return (
       <TravelConsumer>
-        {({ participantList }) => (
+        {({ locationList }) => (
           <UU5.Bricks.Div {...this.getMainPropsToPass()}>
-            <UU5.Forms.Select value={this.props.values} name="participant" inputWidth="auto" controlled={false}>
-              {this._getOptions(participantList)}
+            <UU5.Forms.Select value={this.props.values} name="location" inputWidth="auto" controlled={false}>
+              {this._getOptions(locationList)}
             </UU5.Forms.Select>
             <UU5.Bricks.Button
-              onClick={() => this._handleSubmit(participantList)}
+              onClick={() => this._handleSubmit(locationList)}
               colorSchema="primary"
               content={this.getLsiValue("apply")}
             />
@@ -91,4 +91,4 @@ export const Participant = UU5.Common.VisualComponent.create({
   //@@viewOff:render
 });
 
-export default Participant;
+export default Location;

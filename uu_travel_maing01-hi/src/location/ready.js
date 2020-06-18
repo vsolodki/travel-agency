@@ -83,7 +83,6 @@ export const Ready = UU5.Common.VisualComponent.create({
   },
 
   _handleDetailClose(opt) {
-    // remove id from location
     removeRouteParameters();
     opt.component.onCloseDefault(opt);
   },

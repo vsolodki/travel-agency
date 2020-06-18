@@ -43,9 +43,11 @@ const TravelProvider = UU5.Common.Component.create({
 
   //@@viewOn:interface
   setData(data, setStateCallback) {
-    // filter out keys, no possibility to set awid or userProfiles
-    let newData = UU5.Common.Tools.merge(this.state.data, whitelistedKeys(data, "state", "name", "participantList", "locationList", "logos"));
-    this.setState({data: newData}, setStateCallback);
+    let newData = UU5.Common.Tools.merge(
+      this.state.data,
+      whitelistedKeys(data, "state", "name", "participantList", "locationList","tripList", "logos")
+    );
+    this.setState({ data: newData }, setStateCallback);
     return this;
   },
   //@@viewOff:interface
@@ -58,15 +60,10 @@ const TravelProvider = UU5.Common.Component.create({
 
   //@@viewOn:render
   render() {
-    return (
-      <TravelContext.Provider value={this.state.data}>
-        {this.props.children}
-      </TravelContext.Provider>
-    );
+    return <TravelContext.Provider value={this.state.data}>{this.props.children}</TravelContext.Provider>;
   }
   //@@viewOff:render
 });
 
 export {TravelConsumer, TravelProvider};
 export default TravelProvider;
-

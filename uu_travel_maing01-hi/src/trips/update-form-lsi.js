@@ -27,6 +27,10 @@ export default {
     cs: "Seznam účastníků",
     en: "List of participants"
   },
+  location: {
+    cs: "Destinace",
+    en: "Location"
+  },
   published: {
     cs: "Publikován",
     en: "Published"

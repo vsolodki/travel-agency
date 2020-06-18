@@ -4,6 +4,7 @@ const participantCreateDtoInType = shape({
   surname: uu5String(255),
   birthDate: date(),
   citizenship: uu5String(255),
+  tripList: array(id(), 50),
   icon: string(40),
 });
 
@@ -18,6 +19,7 @@ const participantUpdateDtoInType = shape({
   surname: uu5String(255),
   birthDate: date(),
   citizenship: uu5String(255),
+  tripList: array(id(), 50),
   icon: string(40),
 });
 

@@ -6,6 +6,7 @@ import "uu5g04-forms";
 import Config from "./config/config.js";
 import { dig } from "../helpers/object-utils.js";
 import Participant from "./filter/participant.js";
+import Location from "./filter/location";
 import Checkbox from "./filter/checkbox.js";
 
 import "./filter.less";
@@ -110,12 +111,9 @@ export const Filter = UU5.Common.VisualComponent.create({
           />
         );
         break;
-
-      case "visibility":
-      case "uuIdentity":
-      case "image":
+      case "location":
         child = (
-          <Checkbox
+          <Location
             className={this.getClassName("valueColumn")}
             addFilter={this.props.addFilter}
             values={filter}

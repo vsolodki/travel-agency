@@ -9,12 +9,12 @@ function whitelistedKeys(object, ...keys) {
   return result;
 }
 
-// get nested keys from object or null if any key is missing
+
 function dig(object, ...keys) {
   let pointer = object;
   for (let key of keys) {
     if (!pointer[key]) {
-      return null; // missing key, no need to continue
+      return null;
     }
     pointer = pointer[key];
   }

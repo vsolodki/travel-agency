@@ -21,5 +21,9 @@ export default {
     cs: "Smazat účastníka",
     en: "Delete participant"
   },
-  ...Lsi.buttons
+  ...Lsi.buttons,
+  filterByTrip: {
+    cs: "Zájezd",
+    en: "Trip"
+  }
 };

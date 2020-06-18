@@ -55,7 +55,6 @@ export const Form = UU5.Common.VisualComponent.create({
           name="birthDate"
         />
         <UU5.Forms.Text inputAttrs={{ maxLength: 255 }} name="citizenship" label={this.getLsiComponent("citizenship")} />
-        <UU5.Forms.Iconpicker name="icon" label={this.getLsiComponent("icon")} value="mdi-label" openToContent={true} />
       </UU5.Bricks.Div>
     );
   }

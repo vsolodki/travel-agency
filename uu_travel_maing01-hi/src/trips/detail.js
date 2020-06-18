@@ -69,12 +69,23 @@ export const Detail = UU5.Common.VisualComponent.create({
   },
 
   _buildParticipantNames(participantList) {
-    // for faster lookup
     let participantIds = new Set(this.props.data.participantList);
     return participantList
       .reduce((acc, participant) => {
         if (participantIds.has(participant.id)) {
           acc.push(participant.name);
+        }
+        return acc;
+      }, [])
+      .join(", ");
+  },
+  _buildParticipantSurNames(participantList) {
+    // for faster lookup
+    let participantIds = new Set(this.props.data.participantList);
+    return participantList
+      .reduce((acc, participant) => {
+        if (participantIds.has(participant.id)) {
+          acc.push(participant.surname);
         }
         return acc;
       }, [])
@@ -95,28 +106,17 @@ export const Detail = UU5.Common.VisualComponent.create({
   render() {
     return (
       <UU5.Bricks.Div {...this.getMainPropsToPass()}>
-        {/*<div>
-          {// basic HTML tags are used to prevent possible uu5string from execution
-          nl2br(this.props.data.text)}
-        </div>*/}
-        {this.props.data.image && this._getImage()}
-        {/*<UU5.Bricks.Div className={this.getClassName("rating")}>
-          <UU5.Bricks.Rating value={this.props.data.averageRating} />
-           // Rating Count
-          {this.getLsiComponent("votes", null, this.props.data.ratingCount.toString())}
-        </UU5.Bricks.Div>*/}
         <TravelConsumer>
           {({ participantList }) => this._getLine("mdi-account", this._buildParticipantNames(participantList))}
         </TravelConsumer>
         <TravelConsumer>
-          {({ locationList }) => this._getLine("mdi-account", this._buildLocationNames(locationList))}
+        {({ participantList }) => this._getLine("mdi-account", this._buildParticipantSurNames(participantList))}
         </TravelConsumer>
-        {/*{this._getLine("mdi-account", this.props.data.uuIdentityName)}*/}
+
         {this._getLine("mdi-calendar", this.props.data.locationList)}
         {this._getLine("mdi-calendar", this.props.data.dateFrom)}
         {this._getLine("mdi-calendar", this.props.data.dateTo)}
         {this._getLine("mdi-counter", this.props.data.capacity)}
-        {/*{this._getLine("mdi-calendar", <UU5.Bricks.DateTime value={this.props.data.sys.cts} dateOnly />)}*/}
       </UU5.Bricks.Div>
     );
   }

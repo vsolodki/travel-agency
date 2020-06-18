@@ -9,8 +9,8 @@ import LocationReady from "../location/ready.js";
 import { reportError, reportSuccess } from "../helpers/alert-helper";
 
 import {TravelConsumer} from "../core/travel-provider.js";
-import "./location-management.less";
-import LSI from "./location-management-lsi.js";
+import "./location.less";
+import LSI from "./location-lsi.js";
 
 //@@viewOff:imports
 

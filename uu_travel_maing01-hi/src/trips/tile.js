@@ -3,7 +3,6 @@ import UU5 from "uu5g04";
 import "uu5g04-bricks";
 
 import Uri from "../helpers/uri-helpers.js";
-import {nl2br} from "../helpers/string-helper";
 
 import "./tile.less";
 import Config from "./config/config";
@@ -33,7 +32,6 @@ export const Tile = UU5.Common.VisualComponent.create({
     onDetail: UU5.PropTypes.func.isRequired,
     onUpdate: UU5.PropTypes.func.isRequired,
     onDelete: UU5.PropTypes.func.isRequired,
-    onRate: UU5.PropTypes.func.isRequired,
     onUpdateVisibility: UU5.PropTypes.func.isRequired,
     data: UU5.PropTypes.shape({
       id: UU5.PropTypes.string,
@@ -57,7 +55,6 @@ export const Tile = UU5.Common.VisualComponent.create({
   //@@viewOn:private
   _getMainProps() {
     let props = this.getMainPropsToPass();
-    // add css class
     if (!this.props.data.visibility) {
       props.className = props.className + ` ${this.getClassName("notPublished")}`;
     }
@@ -78,9 +75,8 @@ export const Tile = UU5.Common.VisualComponent.create({
   },
 
   _handleUpdateVisibility() {
-    this.props.onUpdateVisibility({...this.props.data, visibility: !this.props.data.visibility});
+    this.props.onUpdateVisibility({ ...this.props.data, visibility: !this.props.data.visibility });
   },
-
 
   _canManage(trip, identity) {
     return (
@@ -91,7 +87,7 @@ export const Tile = UU5.Common.VisualComponent.create({
 
   _getImage() {
     let imageUrl = Uri.getBinaryUrl(this.props.data.image);
-    return <UU5.Bricks.Image src={imageUrl} authenticate/>;
+    return <UU5.Bricks.Image src={imageUrl} authenticate />;
   },
   //@@viewOff:private
 
@@ -99,20 +95,15 @@ export const Tile = UU5.Common.VisualComponent.create({
   render() {
     return (
       <UU5.Bricks.Div {...this._getMainProps()}>
-        <UU5.Bricks.Div className={this.getClassName("header")} mainAttrs={{onClick: this._handleDetail}}>
-          {/* // Icon */}
-          {/*{!this.props.data.visibility && <UU5.Bricks.Icon icon="mdi-eye-off"/>}*/}
-
+        <UU5.Bricks.Div className={this.getClassName("header")} mainAttrs={{ onClick: this._handleDetail }}>
           <span>
             {
               // basic HTML tags are used to prevent possible uu5string from execution
               this.props.data.name
             }
           </span>
-
         </UU5.Bricks.Div>
-        <UU5.Bricks.Div className={this.getClassName("content")} mainAttrs={{onClick: this._handleDetail}}>
-
+        <UU5.Bricks.Div className={this.getClassName("content")} mainAttrs={{ onClick: this._handleDetail }}>
           {/*<div className={this.getClassName("text")}>
             {// basic HTML tags are used to prevent possible uu5string from execution
               nl2br(this.props.data.text)}
@@ -121,18 +112,14 @@ export const Tile = UU5.Common.VisualComponent.create({
           {this.props.data.image && this._getImage()}
         </UU5.Bricks.Div>
 
-
-            <UU5.Bricks.Div className={this.getClassName("footer")}>
-
-                <UU5.Bricks.Div>
-                  {/* // EditButton */}
-                  <UU5.Bricks.Icon icon="mdi-pencil" mainAttrs={{onClick: this._handleUpdate}}/>
-                  {/* // DeleteButton */}
-                  <UU5.Bricks.Icon icon="mdi-delete" mainAttrs={{onClick: this._handleDelete}}/>
-                </UU5.Bricks.Div>
-
-            </UU5.Bricks.Div>
-
+        <UU5.Bricks.Div className={this.getClassName("footer")}>
+          <UU5.Bricks.Div>
+            {/* // EditButton */}
+            <UU5.Bricks.Icon icon="mdi-pencil" mainAttrs={{ onClick: this._handleUpdate }} />
+            {/* // DeleteButton */}
+            <UU5.Bricks.Icon icon="mdi-delete" mainAttrs={{ onClick: this._handleDelete }} />
+          </UU5.Bricks.Div>
+        </UU5.Bricks.Div>
       </UU5.Bricks.Div>
     );
   }

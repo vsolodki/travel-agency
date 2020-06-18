@@ -124,22 +124,8 @@ class TripAbl {
     } else {
       dtoIn.participantList = [];
     }
-  /*  if (dtoIn.locationList) {
-      let presentLocations = await this._checkLocationsExistence(awid, dtoIn.locationList);
-      // A7
-      if (dtoIn.locationList.length > 0) {
-        ValidationHelper.addWarning(
-          uuAppErrorMap,
-          WARNINGS.createParticipantDoesNotExist.code,
-          WARNINGS.createParticipantDoesNotExist.message,
-          { locationList: [...new Set(dtoIn.locationList)] }
-        );
-      }
-      dtoIn.locationList = [...new Set(presentLocations)];
-    } else {
-      dtoIn.locationList = [];
-    }
-*/
+
+
     // hds 5
     let trip;
     try {
@@ -245,19 +231,7 @@ class TripAbl {
       }
       dtoIn.participantList = [...new Set(presentParticipants)];
     }
-   /* if (dtoIn.locationList) {
-      let presentLocations = await this._checkLocationsExistence(awid, dtoIn.locationList);
-      // A7
-      if (dtoIn.locationList.length > 0) {
-        ValidationHelper.addWarning(
-          uuAppErrorMap,
-          WARNINGS.updateParticipantDoesNotExist.code,
-          WARNINGS.updateParticipantDoesNotExist.message,
-          { locationList: [...new Set(dtoIn.locationList)] }
-        );
-      }
-      dtoIn.locationList = [...new Set(presentLocations)];
-    }*/
+
 
     // hds 6
     if (dtoIn.image) {
@@ -469,14 +443,14 @@ class TripAbl {
   async _checkLocationsExistence(awid, locationList) {
     let locations;
     let pageInfo = { pageIndex: 0 };
-    let presentParticipants = [];
+    let presentLocations = [];
     let locationIndex;
     while (true) {
       locations = await this.locationDao.listByLocationIdList(awid, locationList, pageInfo);
       locations.itemList.forEach(location => {
         locationIndex = locationList.indexOf(location.id.toString());
         if (locationIndex !== -1) {
-          presentParticipants.push(location.id.toString());
+          presentLocations.push(location.id.toString());
           locationList.splice(locationIndex, 1);
         }
       });
@@ -485,7 +459,7 @@ class TripAbl {
       }
       pageInfo.pageIndex += 1;
     }
-    return presentParticipants;
+    return presentLocations;
   }
 }
 

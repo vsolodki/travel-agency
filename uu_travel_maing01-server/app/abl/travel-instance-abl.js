@@ -164,6 +164,7 @@ class TravelInstanceAbl {
     this.dao = DaoFactory.getDao("travelInstance");
     this.participantDao = DaoFactory.getDao("participant");
     this.locationDao = DaoFactory.getDao("location");
+    this.tripDao = DaoFactory.getDao("trip");
     this.STATE_ACTIVE = STATE_ACTIVE;
     this.STATE_UNDER_CONSTRUCTION = STATE_UNDER_CONSTRUCTION;
     this.AUTHORITIES = AUTHORITIES;
@@ -359,6 +360,7 @@ class TravelInstanceAbl {
     // hds 2
     travelInstance.participantList = (await this.participantDao.list(awid)).itemList;
     travelInstance.locationList = (await this.locationDao.list(awid)).itemList;
+    travelInstance.tripList = (await this.tripDao.list(awid)).itemList;
 
     // hds 3
     //travelInstance.authorizedProfileList = authorizedProfiles;

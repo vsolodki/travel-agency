@@ -39,7 +39,6 @@ export const Trips = UU5.Common.VisualComponent.create({
     onCreate: UU5.PropTypes.func.isRequired,
     onUpdate: UU5.PropTypes.func.isRequired,
     onDelete: UU5.PropTypes.func.isRequired,
-    onRate: UU5.PropTypes.func.isRequired,
     onUpdateVisibility: UU5.PropTypes.func.isRequired
   },
   //@@viewOff:propTypes
@@ -75,7 +74,6 @@ export const Trips = UU5.Common.VisualComponent.create({
         onDelete={this._handleDelete}
         onUpdate={this._handleUpdate}
         onDetail={this._handleDetail}
-        onRate={this.props.onRate}
         onUpdateVisibility={this.props.onUpdateVisibility}
       />
     );
@@ -115,7 +113,7 @@ export const Trips = UU5.Common.VisualComponent.create({
     let actions = [];
      {
       actions.push({
-        content: this.getLsi("create"), // Createtrip Button
+        content: this.getLsi("create"),
         onClick: () => {
           this._formModal.open({
             header: this.getLsiComponent("createHeader"),
@@ -144,56 +142,19 @@ export const Trips = UU5.Common.VisualComponent.create({
     ];
   },
 
-  _getFilters(uuIdentity) {
+  _getFilters() {
     let filters = [
       {
         key: "participant",
         label: this.getLsi("filterByParticipant"),
         filterFn: (item, filterValue) => item.participantList && item.participantList.includes(filterValue)
-      }
-/*      {
-        key: "image",
-        label: this.getLsi("filterByImage"),
-        filterFn: (item, filterValue) => !!item.image === filterValue
       },
       {
-        key: "averageRating",
-        label: this.getLsi("filterByRating"),
-        filterFn: (item, filterValue) => {
-          switch (filterValue.type) {
-            case "1":
-              return item.averageRating === filterValue.value;
-            case "2":
-              return item.averageRating >= filterValue.value;
-            case "3":
-              return item.averageRating > filterValue.value;
-            case "4":
-              return item.averageRating <= filterValue.value;
-            case "5":
-              return item.averageRating < filterValue.value;
-          }
-          return false;
-        }
-      }*/
+        key: "location",
+        label: this.getLsi("filterByLocation"),
+        filterFn: (item, filterValue) => item.location && item.location.includes(filterValue)
+      }
     ];
-
-    /*if (UU5.Environment.App.authorization.canFilterOwnRecords()) {
-      filters.push({
-        key: "uuIdentity",
-        label: this.getLsi("filterByUser"),
-        filterFn: (item, filterValue) => {
-          return (uuIdentity === item.uuIdentity) === filterValue;
-        }
-      });
-    }
-    if (UU5.Environment.App.authorization.canFilterPublished()) {
-      filters.push({
-        key: "visibility",
-        label: this.getLsi("filterByVisibility"),
-        filterFn: (item, filterValue) => item.visibility === filterValue
-      });
-    }*/
-
     return filters;
   },
 

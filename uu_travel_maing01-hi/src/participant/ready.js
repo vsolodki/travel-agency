@@ -136,7 +136,17 @@ export const Ready = UU5.Common.VisualComponent.create({
       }
     });
   },
+  _getFilters() {
+    let filters = [
+      {
+        key: "trip",
+        label: this.getLsi("filterByTrip"),
+        filterFn: (item, filterValue) => item.tripList && item.tripList.includes(filterValue)
+      }
 
+    ];
+    return filters;
+  },
   _handleDelete(record) {
     this._modal.open({
       header: this.getLsiComponent("deleteHeader"),
@@ -162,8 +172,13 @@ export const Ready = UU5.Common.VisualComponent.create({
           title={this.getLsi("list")}
           actions={this._getActions}
           sortItems={this._getSortItems}
-          tileHeight={48}
-        />
+          tileHeight={100}
+          >
+          {/*<UU5.Tiles.FilterBar filters={this._getFilters}>
+            <Filter />
+          </UU5.Tiles.FilterBar>*/}
+        </TileList>
+
         <FormModal ref_={this._registerModal} />
       </UU5.Bricks.Div>
     );

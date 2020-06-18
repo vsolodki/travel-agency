@@ -79,14 +79,14 @@ export const Left = UU5.Common.VisualComponent.create({
   _getAuthenticatedMenu() {
     return (
       <UU5.Common.Fragment>
-        <LeftLink route="trips" active={this.state.activeRoute === "trips"}>
+        <LeftLink route="trip" active={this.state.activeRoute === "trip"}>
           {this.getLsiComponent("trips")}
         </LeftLink>
-        <LeftLink route="locationManagement" active={this.state.activeRoute === "locationManagement"}>
+        <LeftLink route="location" active={this.state.activeRoute === "location"}>
           {this.getLsiComponent("locations")}
         </LeftLink>
 
-          <LeftLink route="participantManagement" active={this.state.activeRoute === "participantManagement"}>
+          <LeftLink route="participant" active={this.state.activeRoute === "participant"}>
             {this.getLsiComponent("participants")}
           </LeftLink>
 

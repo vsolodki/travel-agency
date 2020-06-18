@@ -50,7 +50,7 @@ export const Form = UU5.Common.VisualComponent.create({
   _getParticipantsOptions(participants) {
     return participants.map(participant => (
       <UU5.Forms.Select.Option value={participant.id} key={participant.id}>
-        {participant.surname}, {participant.name}
+        {participant.name} {participant.surname}
       </UU5.Forms.Select.Option>
     ));
   },
@@ -63,7 +63,6 @@ export const Form = UU5.Common.VisualComponent.create({
   },
   _validateText(opt) {
     let result = { feedback: Config.FEEDBACK.INITIAL, value: opt.value };
-    // when there is no event, validation comes from "isValid" method
     if (opt.event === undefined) {
       if (!opt.value && !this._file.getValue()) {
         // text is empty, check file

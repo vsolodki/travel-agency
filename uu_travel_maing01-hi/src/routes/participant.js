@@ -9,12 +9,12 @@ import ParticipantReady from "../participant/ready.js";
 import { reportError, reportSuccess } from "../helpers/alert-helper";
 
 import {TravelConsumer} from "../core/travel-provider.js";
-import "./participant-management.less";
-import LSI from "./participant-management-lsi.js";
+import "./participant.less";
+import LSI from "./participant-lsi.js";
 
 //@@viewOff:imports
 
-export const ParticipantManagement = UU5.Common.VisualComponent.create({
+export const Participant = UU5.Common.VisualComponent.create({
   //@@viewOn:mixins
   mixins: [UU5.Common.BaseMixin, UU5.Common.RouteMixin, UU5.Common.CcrReaderMixin],
   //@@viewOff:mixins
@@ -163,4 +163,4 @@ export const ParticipantManagement = UU5.Common.VisualComponent.create({
   //@@viewOff:render
 });
 
-export default ParticipantManagement;
+export default Participant;

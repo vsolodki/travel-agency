@@ -18,14 +18,17 @@ export const Tile = UU5.Common.VisualComponent.create({
     tagName: Config.TAG + "Tile",
     classNames: {
       main: Config.CSS + "tile",
-      text: Config.CSS + "tile-text"
+      text: Config.CSS + "tile-text",
+      header: Config.CSS + "tile-header",
+      footer: Config.CSS + "tile-footer",
+      content: Config.CSS + "tile-content"
     },
     defaults: {
       icon: "mdi-label"
-    },
-    opt: {
-      pureRender: true // avoid re-render from parent
     }
+    // opt: {
+    //   pureRender: true
+    // }
   },
   //@@viewOff:statics
 
@@ -67,22 +70,21 @@ export const Tile = UU5.Common.VisualComponent.create({
   render() {
     return (
       <UU5.Bricks.Div {...this.getMainPropsToPass()}>
-        <UU5.Bricks.Div className={this.getClassName("content")} mainAttrs={{ onClick: this._handleDetail }}>
+        <UU5.Bricks.Div className={this.getClassName("header")} mainAttrs={{ onClick: this._handleDetail }}>
           {/*<UU5.Bricks.Icon icon={this.props.data.icon || this.getDefault().icon} />*/}
-          <span className={this.getClassName("text")}>{this.props.data.name}</span>
-          <span className={this.getClassName("text")}>{this.props.data.surname}</span>
+          <span className={this.getClassName("text")}>{this.props.data.name} {this.props.data.surname}</span>
           {/*<span className={this.getClassName("text")}>{this.props.data.birthDate}</span>
         <span className={this.getClassName("text")}>{this.props.data.citizenship}</span>*/}
 
         </UU5.Bricks.Div>
-        {/* // EditButton */}
-        <UU5.Bricks.Link onClick={this._handleUpdate}>
-          <UU5.Bricks.Icon icon="mdi-pencil" />
-        </UU5.Bricks.Link>
-        {/* // DeleteButton */}
-        <UU5.Bricks.Link onClick={this._handleDelete}>
-          <UU5.Bricks.Icon icon="mdi-delete" />
-        </UU5.Bricks.Link>
+        <UU5.Bricks.Div className={this.getClassName("footer")}>
+          <UU5.Bricks.Div>
+            {/* // EditButton */}
+            <UU5.Bricks.Icon icon="mdi-pencil" mainAttrs={{ onClick: this._handleUpdate }} />
+            {/* // DeleteButton */}
+            <UU5.Bricks.Icon icon="mdi-delete" mainAttrs={{ onClick: this._handleDelete }} />
+          </UU5.Bricks.Div>
+        </UU5.Bricks.Div>
       </UU5.Bricks.Div>
     );
   }

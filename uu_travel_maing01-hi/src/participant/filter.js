@@ -36,7 +36,7 @@ export const Filter = UU5.Common.VisualComponent.create({
     appliedFilters: UU5.PropTypes.object,
     filters: UU5.PropTypes.arrayOf(
       UU5.PropTypes.shape({
-        key: UU5.PropTypes.string,
+        key: UU5.PropTypes.array,
         label: UU5.PropTypes.oneOfType([UU5.PropTypes.string, UU5.PropTypes.object]),
         filterFn: UU5.PropTypes.func
       })
